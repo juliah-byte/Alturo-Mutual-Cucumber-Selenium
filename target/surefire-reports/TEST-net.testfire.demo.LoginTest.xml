@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="net.testfire.demo.LoginTest" time="6.108" errors="1" skipped="0">
+<testsuite tests="10" failures="0" name="net.testfire.demo.LoginTest" time="8.052" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="16.0.1+9-24"/>
@@ -25,7 +25,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\julia\Documents\workspace-spring-tool-suite-4-4.11.0.RELEASE\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5370894981280412058.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\julia\Documents\workspace-spring-tool-suite-4-4.11.0.RELEASE\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6769604741663450262.tmp"/>
     <property name="jansi.force" value="true"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Users\julia\OneDrive\Skillstorm\sts-4.11.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.1.v20210528-1205\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/julia/OneDrive/Skillstorm/sts-4.11.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.1.v20210528-1205/jre/bin/server;C:/Users/julia/OneDrive/Skillstorm/sts-4.11.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.1.v20210528-1205/jre/bin;C:\Program Files\Java\jdk1.8.0_281\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Users\julia\AppData\Local\Programs\Python\Python38\;C:\Users\julia\AppData\Local\Microsoft\WindowsApps;C:\Users\julia\Documents\sqlite-tools-win32-x86-3330000\sqlite-tools-win32-x86-3330000;C:\Program Files\Java\jdk-13.0.2\bin;C:\Users\julia\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Maven\apache-maven-3.8.1\bin;C:\Users\julia\.dotnet\tools;C:\Users\julia\AppData\Roaming\npm;C:\Users\julia\OneDrive\Skillstorm\sts-4.11.0.RELEASE;;."/>
@@ -59,15 +59,14 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Login to Altoro Mutual" name=" #1" time="2.76"/>
-  <testcase classname="Login to Altoro Mutual" name=" #2" time="0.918"/>
-  <testcase classname="Login to Altoro Mutual" name=" #3" time="0.713"/>
-  <testcase classname="Login to Altoro Mutual" name=" #4" time="0.547">
-    <error message="TODO: implement me" type="io.cucumber.java.PendingException">io.cucumber.java.PendingException: TODO: implement me
-	at net.testfire.demo.LoginScenario.i_have_found_article(LoginScenario.java:162)
-	at ✽.I have found article(classpath:login.feature:31)
-</error>
-  </testcase>
-  <testcase classname="Login to Altoro Mutual" name=" #5" time="0.388"/>
-  <testcase classname="Login to Altoro Mutual" name=" #6" time="0.782"/>
+  <testcase classname="Login to Altoro Mutual" name=" #1" time="2.831"/>
+  <testcase classname="Login to Altoro Mutual" name=" #2" time="0.821"/>
+  <testcase classname="Login to Altoro Mutual" name=" #3" time="0.687"/>
+  <testcase classname="Login to Altoro Mutual" name=" #4" time="0.683"/>
+  <testcase classname="Login to Altoro Mutual" name=" #5" time="0.737"/>
+  <testcase classname="Login to Altoro Mutual" name=" #6" time="0.539"/>
+  <testcase classname="Login to Altoro Mutual" name=" #7" time="0.321"/>
+  <testcase classname="Login to Altoro Mutual" name=" #8" time="0.336"/>
+  <testcase classname="Login to Altoro Mutual" name=" #9" time="0.36"/>
+  <testcase classname="Login to Altoro Mutual" name=" #10" time="0.737"/>
 </testsuite>

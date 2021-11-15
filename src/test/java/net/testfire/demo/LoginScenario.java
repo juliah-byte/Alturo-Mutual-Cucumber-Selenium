@@ -1,6 +1,7 @@
 package net.testfire.demo;
 
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,6 +18,7 @@ import io.cucumber.java.en.When;
 //import io.cucumber.junit.Cucumber;
 //import io.cucumber.junit.CucumberOptions;
 import net.testfire.demo.pom.AccountPage;
+import net.testfire.demo.pom.CustomizeSiteLanguage;
 import net.testfire.demo.pom.LoginPage;
 import net.testfire.demo.pom.LogoutPage;
 import net.testfire.demo.pom.RecentTransactionsPage;
@@ -111,6 +113,15 @@ public class LoginScenario {
 	  
 	}
 	
+	
+	
+	//Incorrect Funds
+//	@Then("I have transfered incorrect funds")
+//	public void i_have_transfered_incorrect_funds() {
+//		TransferFundsPage transferFunds = new TransferFundsPage(driver);
+//		  assertFalse(transferFunds.transferSuccessMessage());
+//	}
+	
 	//transfer funds from checking
 	
 	@Given("I tranfer ${int} from checking account to my savings account")
@@ -143,7 +154,7 @@ public class LoginScenario {
 	public void i_search_watchfire() {
 		
 		SearchArticlesPage articlesPage = new SearchArticlesPage(driver);
-		articlesPage.clickSearchArticles();
+		articlesPage.searchWatchfire();
 		
 	   
 	}
@@ -159,8 +170,44 @@ public class LoginScenario {
 	@Then("I have found article")
 	public void i_have_found_article() {
 	    
+		SearchArticlesPage articlesPage = new SearchArticlesPage(driver);
+		assertTrue(articlesPage.findArticle());
+		
 	}
 
+	
+	// Customize Site Language
+	
+	@Given("I am on the Customize Site Page")
+	public void i_am_on_the_customize_site_page() {
+		
+	    CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+	    languagePage.clickCustomizeSiteLanguage();
+	}
+
+	@When("I click English")
+	public void i_click_english() {
+		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+    	languagePage.clickEnglish();
+	}
+	@Then("My customized Site Language is English")
+	public void my_customized_site_language_is_english() {
+		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+		languagePage.isEnglish();
+	}
+
+	@When("I click International")
+	public void i_click_international() {
+		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+    	languagePage.clickInternational();
+	}
+
+	@Then("My customized Site Language is International")
+	public void my_customized_site_language_is_international() {
+		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+    	languagePage.isInterantional();
+	}
+	
 
 	
 	

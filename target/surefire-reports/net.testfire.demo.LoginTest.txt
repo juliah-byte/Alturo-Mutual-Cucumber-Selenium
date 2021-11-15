@@ -1,9 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: net.testfire.demo.LoginTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.611 sec <<< FAILURE!
- #4(Login to Altoro Mutual)  Time elapsed: 0.547 sec  <<< ERROR!
-io.cucumber.java.PendingException: TODO: implement me
-	at net.testfire.demo.LoginScenario.i_have_found_article(LoginScenario.java:162)
-	at ?.I have found article(classpath:login.feature:31)
-
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.543 sec

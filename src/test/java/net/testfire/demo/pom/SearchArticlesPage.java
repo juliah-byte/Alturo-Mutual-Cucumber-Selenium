@@ -1,7 +1,10 @@
 package net.testfire.demo.pom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class SearchArticlesPage extends AbstractPage {
 	
@@ -23,8 +26,10 @@ public class SearchArticlesPage extends AbstractPage {
 	
 	public void searchWatchfire() {
 		
-		//driver.findElement(By.id("query")).click();
-		driver.findElement(By.id("query")).sendKeys("Watchfire");
+		driver.findElement(By.cssSelector("#QueryXpath > #query")).click();
+		driver.findElement(By.cssSelector("#QueryXpath > #query")).sendKeys(Keys.CONTROL + "a");
+		driver.findElement(By.cssSelector("#QueryXpath > #query")).sendKeys(Keys.DELETE);
+		driver.findElement(By.cssSelector("#QueryXpath > #query")).sendKeys("Watchfire");
 	}
 	
 	public void clickQuery() {
@@ -32,11 +37,15 @@ public class SearchArticlesPage extends AbstractPage {
 		driver.findElement(By.id("Button1")).click();
 	}
 	
-	public void findArticle() {
+	public boolean findArticle() {
 		
 		String success = "Found news title:";
 		
-		
+		//WebElement element = driver.findElement(By.cssSelector("#QueryXpath > #query"));
+	    //Actions builder = new Actions(driver);
+	    //builder.doubleClick(element).perform();
+		System.out.println(driver.findElement(By.id("QueryXpath")).getText());
+		return driver.findElement(By.id("QueryXpath")).getText().contains(success);
 	}
 
 }

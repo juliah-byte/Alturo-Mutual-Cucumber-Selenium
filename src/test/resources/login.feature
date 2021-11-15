@@ -11,16 +11,27 @@ Scenario:
 @transferfundsfromsavings
 Scenario:
 	Given I am on the Transfer Funds Page
-	And I transfer $150 from savings account to my checking account
+	And I transfer <value1> from savings account to my checking account
 	When I click transfer money
 	Then I have transfered money
+	Examples:
+	|value1|
+	|$4|
+	|$2147483647|
+	
 	
 @transferfundsfromchecking
-Scenario:
+Scenario Outline:
 	Given I am on the Transfer Funds Page
-	And I tranfer $198 from checking account to my savings account
+	And I tranfer <value1> from checking account to my savings account
 	When I click transfer money 
 	Then I have tranfered money
+	Examples:
+	|value1|
+	|$198|
+	|$2147483647|
+	
+
 	
 	
 @searcharticles
@@ -29,6 +40,17 @@ Scenario:
 	And I search Watchfire
 	When I click Query
 	Then I have found article
+	
+@cutomizesitelanguage
+Scenario:
+	Given I am on the Customize Site Page
+	When I click <language>
+	Then My customized Site Language is <Site Language>
+	Examples:
+	|language|Site Language|
+	|English|English|
+	|International|International|
+	
 	
 	
 	
