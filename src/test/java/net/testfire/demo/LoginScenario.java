@@ -185,28 +185,30 @@ public class LoginScenario {
 	    languagePage.clickCustomizeSiteLanguage();
 	}
 
-	@When("I click English")
-	public void i_click_english() {
+	@When("^I click (.*)$")
+	public void i_click_english(String language) {
 		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+		System.out.println(language);
     	languagePage.clickEnglish();
 	}
-	@Then("My customized Site Language is English")
-	public void my_customized_site_language_is_english() {
+	
+	@Then("^My customized Site Language is (.*)$")
+	public void my_customized_site_language_is_english(String Language) {
 		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
 		languagePage.isEnglish();
 	}
 
-	@When("I click International")
-	public void i_click_international() {
-		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
-    	languagePage.clickInternational();
-	}
-
-	@Then("My customized Site Language is International")
-	public void my_customized_site_language_is_international() {
-		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
-    	languagePage.isInterantional();
-	}
+//	@When("I click International")
+//	public void i_click_international() {
+//		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+//    	languagePage.clickInternational();
+//	}
+//
+//	@Then("My customized Site Language is International")
+//	public void my_customized_site_language_is_international() {
+//		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
+//    	languagePage.isInterantional();
+//	}
 	
 
 	
