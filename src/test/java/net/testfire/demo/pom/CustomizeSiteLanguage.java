@@ -14,7 +14,6 @@ public class CustomizeSiteLanguage {
 	
 	public void clickCustomizeSiteLanguage() {
 		
-		System.out.println("Testing");
 		driver.findElement(By.id("MenuHyperLink5")).click();
 		
 	}
@@ -38,17 +37,15 @@ public class CustomizeSiteLanguage {
 	
 	
 	public boolean isEnglish() {
-		String success = "Current Language:";
+		String success = "Current Language: english";
 		
 		System.out.println(driver.findElement(By.cssSelector("#HyperLink2")).getText());
-		
-		System.out.println("English");
 		
 		return driver.findElement(By.cssSelector("#HyperLink2")).getText().contains(success);
 	}
 	
 	
-	public boolean isInterantional() {
+	public boolean isInternational() {
 		
 		String success = "Current Language: international";
 		

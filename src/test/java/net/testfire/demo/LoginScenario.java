@@ -18,10 +18,13 @@ import io.cucumber.java.en.When;
 //import io.cucumber.junit.Cucumber;
 //import io.cucumber.junit.CucumberOptions;
 import net.testfire.demo.pom.AccountPage;
+import net.testfire.demo.pom.Checking;
+import net.testfire.demo.pom.Credit;
 import net.testfire.demo.pom.CustomizeSiteLanguage;
 import net.testfire.demo.pom.LoginPage;
 import net.testfire.demo.pom.LogoutPage;
 import net.testfire.demo.pom.RecentTransactionsPage;
+import net.testfire.demo.pom.Savings;
 import net.testfire.demo.pom.SearchArticlesPage;
 import net.testfire.demo.pom.TransferFundsPage;
 
@@ -31,8 +34,8 @@ public class LoginScenario {
 	static WebDriver driver;
 	static String url = "https://demo.testfire.net/";
 	static long waitTime = 10;
-	static String user = "jsmith";
-	static String password = "Demo1234";
+	//static String user = "jsmith";
+	//static String password = "Demo1234";
 
 	static {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
@@ -53,12 +56,12 @@ public class LoginScenario {
 
 	}
 
-	@And("I have typed in the username and password")
-	public void i_have_typed_in_the_username_and_password() {
+	@And("^I have typed in the (.*) and (.*)$")
+	public void i_have_typed_in_the_and(String username, String pass) {
 		System.out.println("I type in username and password");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.setUsername(user);
-		loginPage.setPassword(password);
+		loginPage.setUsername(username);
+		loginPage.setPassword(pass);
 
 	}
 
@@ -78,6 +81,7 @@ public class LoginScenario {
 	public void i_am_signed_into_altoro_mutual() {
 		System.out.println("I am signed in to altoro mutual");
 		AccountPage accountPage = new AccountPage(driver);
+		accountPage.viewSummary();
 		assertEquals("Sign Off", accountPage.getLogoutText());
 	}
 	
@@ -90,8 +94,8 @@ public class LoginScenario {
 	}
 	
 	
-	@Given("I transfer ${int} from savings account to my checking account")
-	public void i_transfer_$_from_savings_account_to_my_checking_account(int amount) {
+	@Given("I transfer ${float} from savings account to my checking account")
+	public void i_transfer_$_from_savings_account_to_my_checking_account(float amount) {
 		String newAmount = String.valueOf(amount);
 		TransferFundsPage transferFunds = new TransferFundsPage(driver);
 		transferFunds.fromSavingstoChecking(newAmount);
@@ -124,8 +128,12 @@ public class LoginScenario {
 	
 	//transfer funds from checking
 	
-	@Given("I tranfer ${int} from checking account to my savings account")
-	public void i_tranfer_$_from_checking_account_to_my_savings_account(Integer amount) {
+	
+	
+
+	
+	@Given("I tranfer ${float} from checking account to my savings account")
+	public void i_tranfer_$_from_checking_account_to_my_savings_account(float amount) {
 		String newAmount = String.valueOf(amount);
 		TransferFundsPage transferFunds = new TransferFundsPage(driver);
 		transferFunds.fromSavingstoChecking(newAmount);
@@ -135,6 +143,65 @@ public class LoginScenario {
 		TransferFundsPage transferFunds = new TransferFundsPage(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitTime));
 		assertTrue(transferFunds.transferSuccessMessage());
+	}
+	
+	
+	@Given("^I click (.*) account$")
+	public void i_click_checking_account(String type) {
+		
+		
+		if(type.equals("checking")) {
+			AccountPage accountPage = new AccountPage(driver);
+			accountPage.clickChecking();
+		}
+		
+		if(type.equals("savings")) {
+			AccountPage accountPage = new AccountPage(driver);
+			accountPage.clickSavings();
+			
+		}
+		
+		if(type.equals("credit")) {
+			AccountPage accountPage = new AccountPage(driver);
+			accountPage.clickCredit();
+			
+		}
+	}
+
+	
+	
+	@When("I click go")
+	public void i_click_go() {
+		
+	    AccountPage accountPage = new AccountPage(driver);
+	    accountPage.clickGo();
+	    
+	}
+	
+	@Then("^I can view my (.*) account$")
+	public void i_can_view_my_account(String account) {
+		
+		
+		if(account.equals("checking")) {
+			Checking checking = new Checking(driver);
+			assertTrue(checking.confirmChecking());
+			
+		}
+		
+		if(account.equals("savings")) {
+			Savings savings = new Savings(driver);
+			assertTrue(savings.confirmSavings());
+			
+		}
+		
+		
+		if(account.equals("credit")) {
+			Credit credit = new Credit(driver);
+			assertTrue(credit.confirmCredit());
+			
+		}
+			
+	   
 	}
 	
 	
@@ -185,17 +252,36 @@ public class LoginScenario {
 	    languagePage.clickCustomizeSiteLanguage();
 	}
 
-	@When("^I click (.*)$")
-	public void i_click_english(String language) {
+	@When("^I select (.+)$")
+	public void i_select(String language) {
 		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
 		System.out.println(language);
-    	languagePage.clickEnglish();
+    	
+		if(language == "English") {
+			languagePage.clickEnglish();
+		}
+		
+		
+		if (language == "International") {
+			
+			languagePage.clickInternational();
+		}
 	}
 	
 	@Then("^My customized Site Language is (.*)$")
-	public void my_customized_site_language_is_english(String Language) {
+	public void my_customized_site_language_is(String language) {
 		CustomizeSiteLanguage languagePage = new CustomizeSiteLanguage(driver);
-		languagePage.isEnglish();
+		
+		if(language == "English") {
+			languagePage.isEnglish();
+		}
+		
+		
+		if (language == "International") {
+			
+			languagePage.isInternational();
+		}
+	
 	}
 
 //	@When("I click International")
